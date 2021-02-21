@@ -1,0 +1,28 @@
+{% if errors %}
+    {% for key, error in errors.items() %}
+        <div class="alert alert-danger" ><strong>{{ key }}: </strong>{{ error }}</div>
+    {% endfor %}
+{% endif %}
+<form action="{% if path %}{{ path }}{% endif %}" method="post">
+    <div class="form-group">
+        <label for="vin_code">VIN CODE</label>
+        <input type="text" class="form-control" name="vin_code" id="vin_code" placeholder="Enter vin code" value="{{ form.vin_code }}">
+    </div>
+    <div class="form-group">
+        <label for="manufacturer">Manufacturer</label>
+        <input type="text" class="form-control" name="manufacturer" id="manufacturer" placeholder="Enter manufacturer" value="{{ form.manufacturer }}">
+    </div>
+    <div class="form-group">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" name="model" id="model" placeholder="Enter model" value="{{ form.model }}">
+    </div>
+    <div class="form-group">
+        <label for="year_created">Year created</label>
+        <input type="text" class="form-control" name="year_created" id="year_created" placeholder="Enter year created" value="{{ form.year_created }}">
+    </div>
+    <div class="form-group">
+        <label for="colour">Colour</label>
+        <input type="text" class="form-control" name="colour" id="colour" placeholder="Enter colour" value="{{ form.colour }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block actions %}
+        <a class="d-inline-flex alert alert-success text-decoration-none" href="{{ url('add_car') }}">Add car</a>
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" name="year_created" aria-label="Search" placeholder="Year Created">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+
+{% endblock %}
+
+{% block body %}
+    <table id="cars" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+        <tr>
+            <th>VIN CODE</th>
+            <th>Manufacturer</th>
+            <th>Model</th>
+            <th>Year created</th>
+            <th>Colour</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for car in cars %}
+        <tr>
+            <td>{{ car.vin_code }}</td>
+            <td>{{ car.manufacturer }}</td>
+            <td>{{ car.model }}</td>
+            <td>{{ car.year_created }}</td>
+            <td>{{ car.colour }}</td>
+            <td>
+                <a href="{{ url('car_details', vin_code=car.vin_code) }}">Detail</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

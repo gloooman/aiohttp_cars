@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block actions %}
+    <a class="d-inline-flex alert alert-danger text-decoration-none"
+       href="{{ url('delete_car', vin_code=car.vin_code) }}">
+        Delete
+    </a>
+{% endblock %}
+{% block body %}
+    {% with path=url('car_details', vin_code=car.vin_code), form=car %}
+        {% include 'add_cars_base.html' %}
+    {% endwith %}
+{% endblock %}

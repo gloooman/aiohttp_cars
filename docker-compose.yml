@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  db:
+    image: mongo:4.1.8-xenial
+    container_name: db
+    restart: unless-stopped
+    environment:
+      - MONGO_INITDB_DATABASE=cars
+    ports:
+      - '27017:27017'
